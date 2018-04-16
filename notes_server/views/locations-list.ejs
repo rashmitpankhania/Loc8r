@@ -11,9 +11,9 @@
 		<div id="banner" class="page-header" >
 			<div class="row">
 				<div class="col-lg-6">
-					<h1 class="white-font">Loc8r
+					<h1 class="white-font"><%= pageHeader.title%>
 						<small class="white-font">
-							&nbsp;Find places  to work with wifi near you!
+							&nbsp;<%= pageHeader.strapline%>
 						</small>
 					</h1>
 				</div>
@@ -23,67 +23,33 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-8">
 				<div class="row list-group">
-					<div class="col-xs-12 list-group-item">
-						<h4>
-							<a class="font" href="/location">SurTea</a>
-							<small>&nbsp;
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star-empty"></span>
-								<span class="glyphicon glyphicon-star-empty"></span>
-							</small>
-							<span class="badge pull-right badge-default font">100m</span>
-						</h4>
-						<p class="address">125 High Street, Reading, RG6 1PS</p>
-						<p>
-							<span class="label label-warning">Hot drinks</span>&nbsp;
-							<span class="label label-warning">Food</span>&nbsp;
-							<span class="label label-warning">Premium wifi</span>&nbsp;
-						</p>
-					</div>
-					<div class="col-xs-12 list-group-item">
-						<h4>
-							<a class="font" href="/location">Cafe Hero</a>
-							<small>&nbsp;
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star-empty"></span>
-							</small>
-							<span class="badge pull-right badge-default font">150m</span>
-						</h4>
-						<p class="address">125 High Street, Reading, RG6 1PS</p>
-						<p>
-							<span class="label label-warning">Hot drinks</span>&nbsp;
-							<span class="label label-warning">Food</span>&nbsp;
-							<span class="label label-warning">Premium wifi</span>&nbsp;
-						</p>
-					</div>
-					<div class="col-xs-12 list-group-item">
-						<h4>
-							<a class="font" href="/location">Khetlapa Tea Stall</a>
-							<small>&nbsp;
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star"></span>
-							</small>
-							<span class="badge pull-right badge-default font">300m</span>
-						</h4>
-						<p class="address">125 High Street, Reading, RG6 1PS</p>
-						<p>
-							<span class="label label-warning">Hot drinks</span>&nbsp;
-							<span class="label label-warning">Food</span>&nbsp;
-							<span class="label label-warning">Premium wifi</span>&nbsp;
-						</p>
-					</div>
+					<% for(var i=0; i<locations.length; i++) { %>
+						<div class="col-xs-12 list-group-item">
+							<h4>
+								<a class="font" href="/location"><%= locations[i].name %></a>
+								<small>&nbsp;
+									<% for (var k=0; k<5; k++) { %>
+									<% if (k < locations[i].rating) { %>
+									<span class="glyphicon glyphicon-star"></span>
+									<% } else { %>
+									<span class="glyphicon glyphicon-star-empty"></span>
+									<% } %>
+									<% } %>									
+								</small>
+								<span class="badge pull-right badge-default font"><%= locations[i].distance %></span>
+							</h4>
+							<p class="address"><%= locations[i].address %></p>
+							<p>
+								<% for(var j=0; j<locations[i].facilities.length; j++) { %>
+								<span class="label label-warning"><%= locations[i].facilities[j] %></span>&nbsp;
+								<% } %>
+							</p>
+						</div>
+					<% } %>			
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-4">
-				<p class="lead white-font">Looking for wifi and a seat? Loc8r helps you find places to work when out and about. Perhaps with coffee, cake or a pint? Let Loc8r help you find the place you're looking for.</p>
+				<p class="lead white-font"><%= sidebar %></p>
 			</div>	
 		</div>
 	</div>

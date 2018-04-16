@@ -4,9 +4,10 @@ var ctrlLocations = require('../controllers/locations');
 var ctrlOthers = require('../controllers/others');
 
 /* GET Loactions Pages */
-router.get('/', ctrlLocations.homeList);
+
 router.get('/location', ctrlLocations.locationInfo);
 router.get('/location/addreview', ctrlLocations.addReview);
+router.get('/', ctrlLocations.homelist);
 
 /* GET Others Page*/
 router.get('/about', ctrlOthers.about);

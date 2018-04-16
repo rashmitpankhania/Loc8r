@@ -20,13 +20,15 @@
 				<div class="row">
 					<div class="col-xs-12 col-sm-6">
 						<p class="rating white-font">
+							<% for (var k=0; k<5; k++) { %>
+							<% if (k < location.rating) { %>
 							<span class="glyphicon glyphicon-star"></span>
-							<span class="glyphicon glyphicon-star"></span>
-							<span class="glyphicon glyphicon-star"></span>
+							<% } else { %>
 							<span class="glyphicon glyphicon-star-empty"></span>
-							<span class="glyphicon glyphicon-star-empty"></span>
+							<% } %>
+							<% } %>
 						</p>
-						<p class="white-font">125 High Street, Reading, RG6 1PS</p>
+						<p class="white-font"><%= location.address %></p>
 						<div class="panel panel-primary">
 							<div class="panel-heading">
 								<h2 class="panel-title white-font">Opening hours</h2>
@@ -42,16 +44,12 @@
 								<h2 class="panel-title white-font">Facilities</h2>
 							</div>
 							<div class="panel-body">
+								<% for(var j=0; j<location.facilities.length; j++) { %>
 								<span class="label label-warning">
 									<span class="glyphicon glyphicon-ok">
-									</span>&nbsp;Hot drinks
+									</span>&nbsp;<%= location.facilities[j] %>
 								</span>&nbsp;
-								<span class="label label-warning">
-									<span class="glyphicon glyphicon-ok"></span>&nbsp;Food
-								</span>&nbsp;
-								<span class="label label-warning">
-									<span class="glyphicon glyphicon-ok"></span>&nbsp;Premium wifi
-								</span>&nbsp;
+								<% } %>
 							</div>
 						</div>
 					</div>
@@ -74,42 +72,28 @@
 								<h2 class="panel-title white-font">Customer Reviews</h2>
 							</div>
 							<div class="panel-body review-container">
+								<% for(var r=0; r<reviews.length; r++) { %>
 								<div class="row">
 									<div class="review">
 										<div class="well well-sm review-header">
 											<span class="rating">
+												<% for (var k=0; k<5; k++) { %>
+												<% if (k < reviews[r]	.rating) { %>
 												<span class="glyphicon glyphicon-star"></span>
-												<span class="glyphicon glyphicon-star"></span>
-												<span class="glyphicon glyphicon-star"></span>
-												<span class="glyphicon glyphicon-star"></span>
-												<span class="glyphicon glyphicon-star"></span>
+												<% } else { %>
+												<span class="glyphicon glyphicon-star-empty"></span>
+												<% } %>
+												<% } %>
 											</span>
-											<span class="reviewAuthor">Simon Holmes</span>
-											<small class="reviewTimestamp">16 July 2013</small>
+											<span class="reviewAuthor"><%= reviews[r].name%></span>
+											<small class="reviewTimestamp"><%= reviews[r].date%></small>
 										</div>
 										<div class="col-xs-12">
-											<p>What a great place. I can't say enough good things about it.</p>
+											<p><%= reviews[r].comment%></p>
 										</div>
 									</div>
 								</div>
-								<div class="row">
-									<div class="review">
-										<div class="well well-sm review-header">
-											<span class="rating">
-												<span class="glyphicon glyphicon-star"></span>
-												<span class="glyphicon glyphicon-star"></span>
-												<span class="glyphicon glyphicon-star"></span>
-												<span class="glyphicon glyphicon-star-empty"></span>
-												<span class="glyphicon glyphicon-star-empty"></span>
-											</span>
-											<span class="reviewAuthor">Charlie Chaplin</span>
-											<small class="reviewTimestamp">16 June 2013</small>
-										</div>
-										<div class="col-xs-12">
-											<p>It was okay. Coffee wasn't great, but the wifi was fast.</p>
-										</div>
-									</div>
-								</div>
+								<% } %>
 							</div>
 						</div>
 					</div>
