@@ -34,9 +34,10 @@
 								<h2 class="panel-title white-font">Opening hours</h2>
 							</div>
 							<div class="panel-body" style="font-size: 24px;">
-								<p>Monday - Friday : 7:00am - 7:00pm</p>
-								<p>Saturday : 8:00am - 5:00pm</p>
-								<p>Sunday : closed</p>
+								<% for(var m=0; m<openingTimes.length; m++) { %>
+								<p><%= openingTimes[m].days%> : <% if(openingTimes[m].closed) { %>closed<% } else { %>
+									<%= openingTimes[m].open%> - <%= openingTimes[m].close%><% } %></p>
+								<% } %>
 							</div>
 						</div>
 						<div class="panel panel-primary">

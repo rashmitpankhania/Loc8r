@@ -63,6 +63,27 @@ module.exports.locationInfo = function (req, res){
 			facilities: ['Hot drinks', 'Food', 'Premium wifi'],
 			distance: '1000m'
 		},
+		coords: {lat: 51.455041, lng: -0.9690884},
+		openingTimes:[
+		{
+			days: 'Monday-Wednesday',
+			open: '7:00 AM',
+			close: '7:00 PM',
+			closed: false,
+		},
+		{
+			days: 'Thursday-Friday',
+			open: '7:00 AM',
+			close: '7:00 PM',
+			closed: false,
+		},
+		{
+			days: 'Saturday-Sunday',
+			open: '7:00 AM',
+			close: '7:00 PM',
+			closed: true,
+		}
+		],
 		reviews:[
 		{
 			name: 'Simon Holmes',
