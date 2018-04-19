@@ -7,6 +7,7 @@ var openingTimeSchema = new mongoose.Schema({
 	closed : {type: Boolean, required:true}
 });
 
+
 var reviewSchema = new mongoose.Schema({
 	author: String,
 	comment: String, 
@@ -25,4 +26,4 @@ var locationSchema = new mongoose.Schema({
 	reviews: [reviewSchema]
 });
 
-mongoose.model('Location', locationSchema, 'Locations');
+mongoose.model('Location', locationSchema, 'locations');
