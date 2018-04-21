@@ -30,7 +30,7 @@ module.exports.locationsListBydistance = function (req, res) {
 	var lat = parseFloat(req.query.lat);
 	if(!lng || !lat) {
 		sendJsonResponse(res, 404, {
-			'message': 'latitude longitude both are required';
+			'message': 'latitude longitude both are required'
 		});
 		return;
 	}
@@ -46,7 +46,6 @@ module.exports.locationsListBydistance = function (req, res) {
 		}
 		], function(err, results) {
 			var locations = [];
-			console.log(results);
 			results.forEach(function (doc) {
 				locations.push({
 					distance: theEarth.getDistanceFromRads(doc.dist),
