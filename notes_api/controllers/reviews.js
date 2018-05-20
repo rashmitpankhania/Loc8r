@@ -27,7 +27,6 @@ module.exports.reviewRead = function (req, res) {
 					}
 					if (location.reviews && location.reviews.length > 0) {
 						review = location.reviews.id(req.params.reviewid);
-						console.log(review)
 						if (!review) {
 							sendJsonResponse(res, 404, {
 								'message': 'wth reviewid not found'
