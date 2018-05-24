@@ -115,7 +115,7 @@ module.exports.locationRead = function (req, res) {
 
 module.exports.locationUpdate = function (req, res) {
 	var locationid = req.params.locationid;
-	if (locationid) {
+	if (!locationid) {
 		sendJsonResponse(res, 404, {
 			message: 'sorry location id is required'
 		})
@@ -150,7 +150,7 @@ module.exports.locationUpdate = function (req, res) {
 						}
 					];
 					location.save(function (err, location) {
-						if (err) {
+						if (err) {							
 							sendJsonResponse(res, 403, err);
 						} else {
 							sendJsonResponse(res, 200, location);
